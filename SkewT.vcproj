@@ -4,6 +4,7 @@
 	Version="8.00"
 	Name="SkewT"
 	ProjectGUID="{584DB1BA-8C39-40EB-9557-A55E6E72D057}"
+	RootNamespace="SkewT"
 	Keyword="MFCProj"
 	>
 	<Platforms>
@@ -143,7 +144,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="c:/Binaries/Aspen/Lib/Debug/SkewT.lib"
+				OutputFile="./Debug/SkewT.lib"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
