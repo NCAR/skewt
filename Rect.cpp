@@ -106,8 +106,8 @@ Rect::line::line() {
   }
 
 //////////////////////////////////////////////////////////////////////
-Rect::line::line(Rect::point pp1, Rect::point pp2):
-  p1(pp1), p2(pp2)
+Rect::line::line(Rect::point start, Rect::point end):
+  p1(start), p2(end)
     {
     }
   
