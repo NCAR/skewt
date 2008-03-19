@@ -22,6 +22,7 @@ SkewTRect.cpp
 SkewTtrace.cpp
 WindBarb.cpp
 WindBarbs.cpp
+SkewTAdapterSVG.cpp
 """)
 
 lib = env.Library('#/lib/libskewt', sources)
