@@ -12,7 +12,7 @@
 #include <fstream>
 
 #include "SkewT/SkewT.h"
-#include "SkewTSVG/SkewTAdapterSVG.h"
+#include "SkewT/SkewTAdapterSVG.h"
 
 namespace skewt {
 
