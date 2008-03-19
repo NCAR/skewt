@@ -422,6 +422,10 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\SkewTAdapterSVG.cpp"
+				>
+			</File>
+			<File
 				RelativePath="SkewTMetFormulas.cpp"
 				>
 				<FileConfiguration
@@ -589,6 +593,10 @@
 			</File>
 			<File
 				RelativePath="SkewTAdapter.h"
+				>
+			</File>
+			<File
+				RelativePath=".\SkewTAdapterSVG.h"
 				>
 			</File>
 			<File
