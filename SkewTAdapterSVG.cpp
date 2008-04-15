@@ -229,8 +229,8 @@ void SkewTAdapterSVG::drawElements() {
     _file << "<svg \n";
     _file << "  xmlns=\"http://www.w3.org/2000/svg\"";
     _file << " version=\"1.0\"";
-    _file << " width=\"" << w << "pixels\"";
-    _file << " height=\"" << h << "pixels\"";
+    _file << " width=\"" << w << "\"";
+    _file << " height=\"" << h << "\"";
     _file << ">\n";
 
     _file << title.draw();
