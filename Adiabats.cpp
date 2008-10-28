@@ -44,7 +44,7 @@ using namespace skewt;
     {
     
     double thetaMin   = -50.0;
-    double thetaMax   = 250.0;
+    double thetaMax   = 300.0;
     double thetaDelta =  10.0;
     double logPresDelta = (log10(m_pmax)-log10(m_pmin))/15.0;
     
