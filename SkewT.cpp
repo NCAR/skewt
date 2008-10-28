@@ -31,7 +31,11 @@ SkewT::SkewT(SkewTAdapter& adapter,
              int nWindBarbs,
              std::string title,
              std::string subTitle, 
-             std::string credit):
+             std::string credit,
+             double tmin,
+             double tmax,
+             double pmin,
+             double pmax):
 m_subTitleString(subTitle),
 m_titleString(title),
 m_creditString(credit),
@@ -45,7 +49,12 @@ m_tdryTrace(NULL),
 m_dewptTrace(NULL),
 m_adapter(adapter),
 m_tSlope(1.125),
-m_nWindBarbs(nWindBarbs)
+m_nWindBarbs(nWindBarbs),
+m_defaultTmin(tmin),
+m_defaultTmax(tmax),
+m_defaultPmin(pmin),
+m_defaultPmax(pmax)
+
   {
   m_thermoPageXmin = 0.07;
   m_thermoPageXmax = 0.9;
@@ -198,10 +207,10 @@ void SkewT::zoomin()
 /////////////////////////////////////////////////////////////////////////////
 void SkewT::initialLimits()
   {
-  m_tmin = -40.0;
-  m_tmax = 40.0;
-  m_pmin = 100.0;
-  m_pmax = 1050.0;
+  m_tmin = m_defaultTmin;
+  m_tmax = m_defaultTmax;
+  m_pmin = m_defaultPmin;
+  m_pmax = m_defaultPmax;
 
   }
 
