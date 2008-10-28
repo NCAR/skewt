@@ -46,7 +46,7 @@ void IsoPress::draw()
   unsigned int color = SKEWT_RED;
   
   double tmin = t(0.0, 1.0);
-  double p = floor(m_pmin/100.0)*100.0;
+  double p = floor(m_pmin/10.0)*10.0;
   
   while (p <= m_pmax)
     {
@@ -54,6 +54,9 @@ void IsoPress::draw()
     char label[100];
     sprintf(label, "|r%4.0f", p);
     Text(label, -0.03, p, -0.01, color);
-    p += 100.0;
-    }
+    if (p < 100.0)
+        p += 10.0;
+    else
+        p += 100.0;
   }
+}
