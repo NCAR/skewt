@@ -48,13 +48,12 @@ m_windBarbs(NULL),
 m_tdryTrace(NULL),
 m_dewptTrace(NULL),
 m_adapter(adapter),
-m_tSlope(1.125),
-m_nWindBarbs(nWindBarbs),
 m_defaultTmin(tmin),
 m_defaultTmax(tmax),
 m_defaultPmin(pmin),
-m_defaultPmax(pmax)
-
+m_defaultPmax(pmax),
+m_tSlope(1.125),
+m_nWindBarbs(nWindBarbs)
   {
   m_thermoPageXmin = 0.07;
   m_thermoPageXmax = 0.9;
