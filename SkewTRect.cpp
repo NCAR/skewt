@@ -11,15 +11,13 @@
 //////////////////////////////////////////////////////////////////////
 
 #include "SkewTRect.h"
-#include  <math.h>
+#include  <cmath>
 
 #ifdef _DEBUG
 #undef THIS_FILE
 static char THIS_FILE[]=__FILE__;
 #define new DEBUG_NEW
 #endif
-
-#include <math.h>
 
 using namespace skewt;
 

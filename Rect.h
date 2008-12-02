@@ -19,9 +19,9 @@
 
 
 #include "SkewTdefs.h"
-#include "math.h"
 #include "SkewTAdapter.h"
 
+#include <cmath>
 #include <string>
 
 #define RED    RGB(255,0,0)

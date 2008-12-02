@@ -21,8 +21,7 @@
 #include "SkewTAdapter.h"
 #include "PresRect.h"
 
-#include "math.h"
-
+#include <cmath>
 #include <string>
 
 namespace skewt {

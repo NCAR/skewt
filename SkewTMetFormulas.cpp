@@ -60,7 +60,7 @@ SkewTMetFormulas::~SkewTMetFormulas()
 * maintenance or updates for its software.
 */
 
-# include <math.h>
+# include <cmath>
 //# include "met_formulas.h"
 
 /*
