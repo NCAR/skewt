@@ -23,8 +23,14 @@ SkewTAdapterSVG::SkewTAdapterSVG(std::ostream& file,
                                  int height,
                                  int width,
                                  int symbolSize) :
-    _file(file), _height(height), _width(width), _firstLineCall(true),
-            _symbolSize(symbolSize), _pSkewT(0), _ready(false) {
+    _firstLineCall(true),
+    _symbolSize(symbolSize),
+    _pSkewT(0),
+    _ready(false),
+    _height(height),
+    _width(width),
+    _file(file)
+{
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -68,8 +74,8 @@ void SkewTAdapterSVG::line(double x1,
             SkewTSVGPolyline* pl = new SkewTSVGPolyline(_xvals, _yvals, _width, _height, colorCode);
             _pLines.push_back(pl);
 
-            int h = _height;
-            int w = _width;
+            //      int h = _height;
+            //      int w = _width;
 
             //      QPainter painter(this);
             //      pl->draw(painter, w, h);
@@ -137,8 +143,8 @@ void SkewTAdapterSVG::Text(const std::string &s,
     // save it
     _texts.push_back(t);
 
-    int h = _height;
-    int w = _width;
+    // int h = _height;
+    // int w = _width;
 
     // and draw it
     //QPainter painter(this);
@@ -181,8 +187,8 @@ void SkewTAdapterSVG::addTdry(double x,
     // save it
     _tdryPoints.push_back(t);
 
-    int h = _height;
-    int w = _width;
+    // int h = _height;
+    // int w = _width;
 
     // and draw it
     //QPainter painter(this);
@@ -201,8 +207,8 @@ void SkewTAdapterSVG::addDp(double x,
     // save it
     _dpPoints.push_back(t);
 
-    int h = _height;
-    int w = _width;
+    // int h = _height;
+    // int w = _width;
 
     // and draw it
     //QPainter painter(this);
@@ -308,8 +314,8 @@ void SkewTAdapterSVG::symbol(double x,
     // save it
     _symbols.push_back(t);
 
-    int h = _height;
-    int w = _width;
+    // int h = _height;
+    // int w = _width;
 
     // and draw it
     //QPainter painter(this);
