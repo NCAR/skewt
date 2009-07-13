@@ -12,7 +12,7 @@
 
 #include "PAdiabats.h"
 
-#include <stdio.h>
+#include <cstdio>
 
 #ifdef _DEBUG
 #undef THIS_FILE

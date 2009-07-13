@@ -11,8 +11,7 @@
 //////////////////////////////////////////////////////////////////////
 
 #include "IsoPress.h"
-#include <string>
-#include <stdio.h>
+#include <cstdio>
 
 #ifdef _DEBUG
 #undef THIS_FILE

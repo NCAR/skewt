@@ -12,7 +12,7 @@
 
 #include "IsoMR.h"
 
-#include <stdio.h>  // sprintf
+#include <cstdio>  // sprintf
 
 #ifdef _DEBUG
 #undef THIS_FILE
