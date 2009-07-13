@@ -12,6 +12,8 @@
 
 #include "IsoMR.h"
 
+#include <stdio.h>  // sprintf
+
 #ifdef _DEBUG
 #undef THIS_FILE
 static char THIS_FILE[]=__FILE__;

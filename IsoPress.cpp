@@ -12,6 +12,7 @@
 
 #include "IsoPress.h"
 #include <string>
+#include <stdio.h>
 
 #ifdef _DEBUG
 #undef THIS_FILE
