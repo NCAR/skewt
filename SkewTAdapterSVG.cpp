@@ -109,7 +109,7 @@ void SkewTAdapterSVG::Text(const std::string &s,
 
     // set the alignment, if the alignment codes are given as the 
     // first two characters of the text. They can be : |r, |c or |l
-    SkewTSVGText::AlignType alignFlag = SkewTSVGText::AlignLeft;
+    SkewTSVGText::AlignType alignFlag = SkewTSVGText::AlignCenter;
     if (s[0] == '|') {
         // alignment flags can be any combination of 
         // AlignLeft, AlignRight, AlignTop, AlignBottom, AlignHCenter, AlignVCenter, AlignCenter
