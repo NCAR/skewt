@@ -1,47 +1,45 @@
 # -*- python -*-
 
 sources = Split("""
-   Adiabats.cpp
-   IsoMR.cpp
-   IsoPleth.cpp
-   IsoTherms.cpp
-   IsoPress.cpp
-   PAdiabats.cpp
-   PresRect.cpp
-   Rect.cpp
-   SkewT.cpp
-   SkewTAdapter.cpp
-   SkewTMetFormulas.cpp
-   SkewTRect.cpp
-   SkewTtrace.cpp
-   WindBarb.cpp
-   WindBarbs.cpp
-   SkewTAdapterSVG.cpp
+Adiabats.cpp
+IsoMR.cpp
+IsoPleth.cpp
+IsoTherms.cpp
+IsoPress.cpp
+PAdiabats.cpp
+PresRect.cpp
+Rect.cpp
+SkewT.cpp
+SkewTAdapter.cpp
+SkewTMetFormulas.cpp
+SkewTRect.cpp
+SkewTtrace.cpp
+WindBarb.cpp
+WindBarbs.cpp
+SkewTAdapterSVG.cpp
 """)
 
 headers = Split("""
-   Adiabats.h
-   IsoMR.h
-   IsoPleth.h
-   IsoPress.h
-   IsoTherms.h
-   PAdiabats.h
-   PresRect.h
-   Rect.h
-   SkewT.h
-   SkewTAdapter.h
-   SkewTAdapterSVG.h
-   SkewTMetFormulas.h
-   SkewTRect.h
-   SkewTdefs.h
-   SkewTdoxygen.h
-   SkewTtrace.h
-   WindBarb.h
-   WindBarbs.h
+Adiabats.h
+IsoMR.h
+IsoPleth.h
+IsoPress.h
+IsoTherms.h
+PAdiabats.h
+PresRect.h
+Rect.h
+SkewT.h
+SkewTAdapter.h
+SkewTAdapterSVG.h
+SkewTMetFormulas.h
+SkewTRect.h
+SkewTdefs.h
+SkewTdoxygen.h
+SkewTtrace.h
+WindBarb.h
+WindBarbs.h
 """)
 
-#html = env.Apidocs(sources + headers, DOXYFILE_FILE = "Doxyfile")
-#env.Default(html)
 
 if Dir('.').path.startswith('plotlib'):
 
