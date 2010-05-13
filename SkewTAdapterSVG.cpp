@@ -529,10 +529,10 @@ SkewTSVGDatum::~SkewTSVGDatum() {
 std::string SkewTSVGDatum::draw() {
 
     // symbol radius
-    double r = 2.0;
+    double r = _size/2;
 
-    double x = (_w * _x - _size/2) + r/2.0;
-    double y = (_h - _h*_y - _size/2) + r/2.0;
+    double x = (_w * _x);
+    double y = (_h - _h*_y);
 
     std::ostringstream s;
 
