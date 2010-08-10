@@ -52,7 +52,6 @@ namespace skewt {
 	class SkewTAdapter  
 	{
 	public:
-
 		enum PlotFileType {PNG, JPG};
 
 		enum LineType {SolidLine, DashedLine};
@@ -62,8 +61,7 @@ namespace skewt {
 		virtual ~SkewTAdapter();
 
 		/**
-		* Perform graphics component initialization, when a completely new plot is being 
-		* created.
+		* Perform graphics component initialization, when a completely new plot is being created.
 		*/
 		virtual void          init() = 0;
 		/**
@@ -72,15 +70,13 @@ namespace skewt {
 		*/
 		virtual void          draw_finished() = 0;
 		/**
-		* Add a dewpoint datum to the SkewT. 
-		*
+		* Add a dewpoint datum to the SkewT.
 		* @param x X coordinate, between 0 and 1.
 		* @param y Y coordinate, between 0 and 1.
 		*/
 		virtual void          addDp(double x, double y) = 0;
 		/**
-		* Add a tdry datum to the SkewT. 
-		*
+		* Add a tdry datum to the SkewT.
 		* @param x X coordinate, between 0 and 1.
 		* @param y Y coordinate, between 0 and 1.
 		*/
@@ -93,7 +89,7 @@ namespace skewt {
 		* @param color Color of symbol.
 		* @param st SkewT::SymType
 		*/
-		virtual void          symbol(double x, double y, unsigned int color, SymType st = SmallPlus)  = 0;
+		virtual void          symbol(double x, double y, unsigned int color, SymType st = SmallPlus) = 0;
 		/**
 		* Write the text string at the specified location.
 		* @param s The text.
@@ -126,7 +122,7 @@ namespace skewt {
 		* Set the graph main  title.
 		* @param s The title text.
 		*/
-		virtual void          title(std::string s)    = 0;
+		virtual void          title(std::string s) = 0;
 		/**
 		* Set the graph sub-title.
 		* @param s The sub-title text.
@@ -136,7 +132,7 @@ namespace skewt {
 		* Enable/disable the marking of individual points.
 		* @param flag Set true to display a symbol for each point.
 		*/
-		virtual void          markPoints (bool flag)  = 0;
+		virtual void          markPoints (bool flag) = 0;
 		/**
 		* Return the plot window aspect ratio.
 		* @return The aspect ratio of the the plotting window, height/width.
@@ -167,7 +163,6 @@ namespace skewt {
 		bool                  m_markPoints;     ///< Set true if individual pouints on the trace should be marked with symbols.
 		string                m_title;          ///< The main title.
 		string                m_subTitle;       ///< the sub-title.
-
 	};
 }
 #endif // !defined(AFX_SKEWTADAPTER_H__5813CCC1_D1A4_11D2_B5B6_ED3B095D6882__INCLUDED_)
