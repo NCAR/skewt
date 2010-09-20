@@ -27,7 +27,7 @@ using namespace skewt;
 
 SkewT::SkewT(SkewTAdapter& adapter,
              int n,
-             double* pTdry, double* pRH, double* pWspd, double* pWdir, double* pPres,
+             double* pTdry, double* pDP, double* pWspd, double* pWdir, double* pPres,
              int nWindBarbs,
              std::string title,
              std::string subTitle, 
@@ -76,16 +76,16 @@ m_nWindBarbs(nWindBarbs)
     if (pPres[i] != -999.0) {
       double pres = pPres[i];
       
-      // tdry and dew point
+      // tdry
       if (pTdry[i] != -999.0) {
         m_tdry.push_back(pTdry[i]);
         m_presTdry.push_back(pres);
-        if (pRH[i] != -999.0) {
-          double dp = dewPt(pTdry[i], pRH[i]);
-          m_dewpt.push_back(dp);
-          m_presDewpt.push_back(pres);
-          }
-        }
+      }
+      // dew point
+      if (pDP[i] != -999.0) {
+        m_dewpt.push_back(pDP[i]);
+        m_presDewpt.push_back(pres);
+      }
       
       // wspd and wdir
       if (pWspd[i] != -999.0 && pWdir[i] != -999.0) {
@@ -122,18 +122,17 @@ void SkewT::drawTdry(double pres, double tdry)
 
 /////////////////////////////////////////////////////////////////////////////
 void 
-SkewT::drawDp(double pres, double tdry, double RH)
-  {
-  if (pres == -999.0 || tdry == -999.0 || RH == -999.0)
+SkewT::drawDp(double pres, double dp)
+{
+  if (pres == -999.0 || dp == -999.0)
     return;
 
-  double dp = dewPt(tdry, RH);
   m_dewpt.push_back(dp);
   m_presDewpt.push_back(pres);
 
   m_dewptTrace->drawDp(pres, dp);
-  }
 
+}
 /////////////////////////////////////////////////////////////////////////////
 void 
 SkewT::drawWind(double pres, double wspd, double wdir) {
@@ -340,34 +339,3 @@ void SkewT::print()
   {
   m_adapter.print();
   }
-
-/////////////////////////////////////////////////////////////////////////////
-double 
-SkewT::dewPt(double tdry, double rh) {
-  
-  // from James Franklin
-  double tm = 0.0;
-  double tk = tdry+273.16;
-  double tn = tk;
-  double es = pow(10.0,(9.4051-2353.0/tk) );
-  double eo = 0.01*rh*es ;
-  double ts = 1.0;
-  do {
-    double ep = 5417.98*es/(tn*tn);
-    tn = tn + (eo-es)/ep;
-    ts = fabs(tm-tn) ;
-    tm =tn;
-    es = pow(10.0,(9.4051-2353./tn));
-    } while (ts >= 0.005);
-  
-  double dd = tk-tn;
-  double dewpt=tk-273.16-dd;
-  if (dewpt  > tdry) dewpt = tdry;
-  return dewpt;
-  
-  // taken from the FMH 3.
-  //	double dpdep = dewPtDepression(tdry, rh);
-  //	double result = tdry + dpdep;
-  //	return result;
-  }
-

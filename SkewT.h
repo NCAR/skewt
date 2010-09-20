@@ -49,7 +49,7 @@ namespace skewt {
 		* @param adapter The adapter that will display the diagram.
 		* @param n The number of data points supplied in the following arrays.
 		* @param pTdry Pointer to an array of temperature data, or 0 if none.
-		* @param pRH Pointer to an array of temperature data, or 0 if none.
+		* @param pDP Pointer to an array of DP data, or 0 if none.
 		* @param pWspd Pointer to an array of wind speed data, or 0 if none.
 		* @param pWdir Pointer to an array of wind direction data, or 0 if none.
 		* @param pPres Pointer to an array of pressure data, or 0 if none.
@@ -63,7 +63,7 @@ namespace skewt {
         * @param Maximum pressure, along the y axis
 		*/
 		SkewT(SkewTAdapter& adapter, int n,
-			double* pTdry, double* pRH, double* pWspd, double* pWdir, double* pPres,
+			double* pTdry, double* DP, double* pWspd, double* pWdir, double* pPres,
 			int nWindBarbs, std::string title, std::string subTitle, std::string credit,
             double tmin = -40.0, double tmax = 40.0, double pmin = 100.0, double pmax = 1050.0);
 		virtual ~SkewT();
@@ -94,7 +94,7 @@ namespace skewt {
 		/**
 		* add a dewpoint to the display
 		*/
-		void drawDp  (double pres, double tdry, double RH);
+		void drawDp  (double pres, double DP);
 		/**
 		* add a wind barb to the display
 		*/
@@ -111,7 +111,6 @@ namespace skewt {
 		void createRects();
 		void destroyRects();
 		void initialLimits();
-		double dewPt(double tdry, double rh);
 
 		IsoMR*        m_isoMR;
 		IsoTherms*    m_isoTherms;
