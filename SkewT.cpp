@@ -196,10 +196,17 @@ void SkewT::zoomin()
   // zoomed extents
   
   rescaleLimits();
-  m_adapter.unzoom();
   m_adapter.init();
   brandNewPlot();
   
+  }
+
+/////////////////////////////////////////////////////////////////////////////
+void SkewT::resize()
+  {
+  m_adapter.init();
+  brandNewPlot();
+
   }
 
 /////////////////////////////////////////////////////////////////////////////

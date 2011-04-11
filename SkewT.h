@@ -76,6 +76,10 @@ namespace skewt {
 		*/
 		void print();
 		/**
+		* Call this to ask the adapter to resize on the display
+		*/
+		void resize();
+		/**
 		* Call this to ask the adapter to zoom in on the display
 		*/
 		void zoomin();
