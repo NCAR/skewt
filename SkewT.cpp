@@ -24,7 +24,6 @@ using namespace skewt;
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
-
 SkewT::SkewT(SkewTAdapter& adapter,
              int n,
              double* pTdry, double* pDP, double* pWspd, double* pWdir, double* pPres,
@@ -54,7 +53,7 @@ m_defaultPmin(pmin),
 m_defaultPmax(pmax),
 m_tSlope(1.125),
 m_nWindBarbs(nWindBarbs)
-  {
+{
   m_thermoPageXmin = 0.07;
   m_thermoPageXmax = 0.9;
   
@@ -92,25 +91,23 @@ m_nWindBarbs(nWindBarbs)
         m_wspd.push_back(pWspd[i]);
         m_wdir.push_back(pWdir[i]);
         m_presWinds.push_back(pres);
-        }
-      
-      }
+      }      
     }
+  }
   
   initialLimits();
-  
   brandNewPlot();
-  }
+}
 
 /////////////////////////////////////////////////////////////////////////////
 SkewT::~SkewT()
-  {
+{
   destroyRects();
-  }
+}
 
 /////////////////////////////////////////////////////////////////////////////
 void SkewT::drawTdry(double pres, double tdry)
-  {
+{
   if (pres == -999.0 || tdry == -999.0)
     return;
 
@@ -118,11 +115,10 @@ void SkewT::drawTdry(double pres, double tdry)
   m_presTdry.push_back(pres);
 
   m_tdryTrace->drawTdry(pres, tdry);
-  }
+}
 
 /////////////////////////////////////////////////////////////////////////////
-void 
-SkewT::drawDp(double pres, double dp)
+void SkewT::drawDp(double pres, double dp)
 {
   if (pres == -999.0 || dp == -999.0)
     return;
@@ -131,12 +127,11 @@ SkewT::drawDp(double pres, double dp)
   m_presDewpt.push_back(pres);
 
   m_dewptTrace->drawDp(pres, dp);
-
 }
-/////////////////////////////////////////////////////////////////////////////
-void 
-SkewT::drawWind(double pres, double wspd, double wdir) {
 
+/////////////////////////////////////////////////////////////////////////////
+void SkewT::drawWind(double pres, double wspd, double wdir)
+{
   if (pres == -999.0 || wspd == -999.0 || wspd == -999.0)
     return;
 
@@ -145,11 +140,11 @@ SkewT::drawWind(double pres, double wspd, double wdir) {
   m_presWinds.push_back(pres);
 
   m_windBarbs->drawBarb(wspd, wdir, pres);
-  }
+}
 
 /////////////////////////////////////////////////////////////////////////////
 void SkewT::draw()
-  {
+{
   m_windBarbs->draw();
   m_isoTherms->draw();
   m_adiabats->draw();
@@ -168,60 +163,50 @@ void SkewT::draw()
   m_adapter.Text(credit.c_str(), 0.01, 0.01, 0);
   
   m_adapter.draw_finished();
-  }
+}
 
 /////////////////////////////////////////////////////////////////////////////
 void SkewT::maximize()
-  {
+{
   m_adapter.maximize();
-  }
+}
 
 /////////////////////////////////////////////////////////////////////////////
 void SkewT::unzoom()
-  {
-  
+{  
   m_adapter.unzoom();
   
   initialLimits();	
-  brandNewPlot();
-  
-  }
+  brandNewPlot(); 
+}
 
 /////////////////////////////////////////////////////////////////////////////
 void SkewT::zoomin()
-  {
-  // change the t and pressure limits to
-  // match the zoomed area. This must be done
-  // before the unzoom, so that we can get the
-  // zoomed extents
-  
+{
+  // change the t and pressure limits to match the zoomed area. This must 
+  // be done before the unzoom, so that we can get the zoomed extents  
   rescaleLimits();
-  m_adapter.init();
   brandNewPlot();
-  
-  }
+}
 
 /////////////////////////////////////////////////////////////////////////////
 void SkewT::resize()
-  {
-  m_adapter.init();
+{
   brandNewPlot();
-
-  }
+}
 
 /////////////////////////////////////////////////////////////////////////////
 void SkewT::initialLimits()
-  {
+{
   m_tmin = m_defaultTmin;
   m_tmax = m_defaultTmax;
   m_pmin = m_defaultPmin;
   m_pmax = m_defaultPmax;
-
-  }
+}
 
 /////////////////////////////////////////////////////////////////////////////
 void SkewT::destroyRects()
-  {
+{
   delete m_isoTherms;
   delete m_adiabats;
   delete m_isoPress;
@@ -238,14 +223,12 @@ void SkewT::destroyRects()
   m_isoMR      = NULL;
   m_tdryTrace  = NULL;
   m_dewptTrace = NULL;
-  m_windBarbs  = NULL;
-  
-  }
+  m_windBarbs  = NULL;  
+}
 
 /////////////////////////////////////////////////////////////////////////////
 void SkewT::createRects()
-  {
-  
+{  
   destroyRects();
   
   m_isoTherms = new IsoTherms(m_adapter,
@@ -281,13 +264,12 @@ void SkewT::createRects()
   m_windBarbs = new WindBarbs(m_adapter,
     m_windsPageXmin, m_windsPageXmax, m_pageYmin, m_pageYmax,
     m_pmin, m_pmax,
-    m_presWinds, m_wspd, m_wdir, m_nWindBarbs);
-  
-  }
+    m_presWinds, m_wspd, m_wdir, m_nWindBarbs);  
+}
 
 /////////////////////////////////////////////////////////////////////////////
 void SkewT::rescaleLimits()
-  {
+{
   double xmin, xmax, ymin, ymax;
   m_adapter.extents(xmin, xmax, ymin, ymax);
   
@@ -302,47 +284,43 @@ void SkewT::rescaleLimits()
   xmax = (xmax-m_thermoPageXmin)/(m_thermoPageXmax-m_thermoPageXmin);
   ymin = (ymin-m_pageYmin)/(m_pageYmax-m_pageYmin);
   ymax = (ymax-m_pageYmin)/(m_pageYmax-m_pageYmin);
-  
-  
+    
   // borrow m_isoPress to do our coordinate transformation
-  
   m_pmin = m_isoPress->p(ymax);
   m_pmax = m_isoPress->p(ymin);
   
   m_tmin = m_isoPress->t(xmin, m_isoPress->y(m_pmax));
   m_tmax = m_isoPress->t(xmax, m_isoPress->y(m_pmax));
-  
-  }
+}
 
 /////////////////////////////////////////////////////////////////////////////
 double SkewT::amax(const double &x, const double &y)
-  {
+{
   if (x > y)
     return x;
   else 
     return y;
-  }
+}
 
 /////////////////////////////////////////////////////////////////////////////
 double SkewT::amin(const double &x, const double &y)
-  {
+{
   if (x < y)
     return x;
   else
     return y;
-  }
+}
 
 /////////////////////////////////////////////////////////////////////////////
 void SkewT::brandNewPlot()
-  {
+{
   m_adapter.init();
   createRects();
-  draw();
-  
-  }
+  draw();  
+}
 
 /////////////////////////////////////////////////////////////////////////////
 void SkewT::print()
-  {
+{
   m_adapter.print();
-  }
+}
