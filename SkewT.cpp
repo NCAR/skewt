@@ -54,21 +54,21 @@ m_defaultPmax(pmax),
 m_tSlope(1.125),
 m_nWindBarbs(nWindBarbs)
 {
-  m_thermoPageXmin = 0.07;
-  m_thermoPageXmax = 0.9;
+  m_thermoPageXmin = 0.08;
+  m_thermoPageXmax = 0.90;
   
   m_windsPageXmin = m_thermoPageXmax;
-  m_windsPageXmax = 1.0;
+  m_windsPageXmax = 1.00;
   
   m_pageYmin = 0.07;
   m_pageYmax = 0.90;
   
-  m_tdry.erase(m_tdry.begin(),      m_tdry.end());
-  m_presTdry.erase(m_presTdry.begin(),  m_presTdry.end());
-  m_dewpt.erase(m_dewpt.begin(),     m_dewpt.end());
+  m_tdry.erase     (m_tdry.begin(),      m_tdry.end());
+  m_presTdry.erase (m_presTdry.begin(),  m_presTdry.end());
+  m_dewpt.erase    (m_dewpt.begin(),     m_dewpt.end());
   m_presDewpt.erase(m_presDewpt.begin(), m_presDewpt.end());
-  m_wspd.erase(m_wspd.begin(),      m_wspd.end());
-  m_wdir.erase(m_wdir.begin(),      m_wdir.end());
+  m_wspd.erase     (m_wspd.begin(),      m_wspd.end());
+  m_wdir.erase     (m_wdir.begin(),      m_wdir.end());
   m_presWinds.erase(m_presWinds.begin(), m_presWinds.end());
   
   for (int i = 0; i < n; i++) {
@@ -160,7 +160,7 @@ void SkewT::draw()
   std::string credit = "|l";
   credit += m_creditString;
   
-  m_adapter.Text(credit.c_str(), 0.01, 0.01, 0);
+  m_adapter.Text(credit.c_str(), 0.12, 0.01, SKEWT_BLACK);
   
   m_adapter.draw_finished();
 }
