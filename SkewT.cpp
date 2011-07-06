@@ -173,9 +173,7 @@ void SkewT::maximize()
 
 /////////////////////////////////////////////////////////////////////////////
 void SkewT::unzoom()
-{  
-  m_adapter.unzoom();
-  
+{
   initialLimits();	
   brandNewPlot(); 
 }
