@@ -20,7 +20,6 @@
 #include "SkewTdefs.h"
 #include <vector>
 #include <string>
-//#include "Rect.h"
 
 using namespace std;
 

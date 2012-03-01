@@ -11,7 +11,6 @@
 //////////////////////////////////////////////////////////////////////
 
 #include "WindBarb.h"
-#include "SkewTMetFormulas.h"
 
 #ifdef _DEBUG
 #undef THIS_FILE
