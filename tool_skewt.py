@@ -10,10 +10,10 @@ upDir   = Dir('./../').abspath
 
 # Define tool. This must match the value of toolname.
 def skewt(env):
-    env.Append(LIBS = toolname)
-    env.AppendUnique(CPPPATH = thisDir)
-    env.AppendUnique(CPPPATH = upDir)
-    env.AppendUnique(LIBPATH = thisDir)
+    env.Append(LIBS = [toolname])
+    env.AppendUnique(CPPPATH = [upDir])
+    env.AppendUnique(CPPPATH = [thisDir])
+    env.AppendUnique(LIBPATH = [thisDir])
     ourtools = ['doxygen', 'prefixoptions']
     env.Require(ourtools)
     
