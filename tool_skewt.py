@@ -1,6 +1,3 @@
-# -*- python -*-
-
-# The tool name and the library name will be the same.
 toolname = 'skewt'
 
 thisDir = Dir('.').abspath
@@ -12,8 +9,7 @@ def skewt(env):
     env.AppendUnique(CPPPATH = [upDir])
     env.AppendUnique(CPPPATH = [thisDir])
     env.AppendUnique(LIBPATH = [thisDir])
-    ourtools = ['doxygen', 'prefixoptions']
-    env.Require(ourtools)
+    env.Require(['prefixoptions'])
     
 Export(toolname)
 
@@ -58,12 +54,10 @@ headers = Split("""
    WindBarbs.h
 """)
 
-env = Environment(tools = ['default', toolname])
+env = Environment(tools = ['default', 'doxygen', toolname])
 
 lib = env.Library(toolname, sources)
 env.Default(lib)
 
 # Create doxygen
 doxref = env.Apidocs(sources + headers, DOXYFILE_DICT={'PROJECT_NAME':toolname, 'PROJECT_NUMBER':'1.0'})
-env.Default(doxref)
-
