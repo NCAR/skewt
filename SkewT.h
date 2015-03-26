@@ -59,11 +59,11 @@ namespace skewt {
 		* @param credit Credit
         * @param tmin Minimum temperature, along the x axis
         * @param tmax Maximum temperature, along the x axis
-        * @param minimum pressure, along the y axis
-        * @param Maximum pressure, along the y axis
+        * @param pmin Minimum pressure, along the y axis
+        * @param pmax Maximum pressure, along the y axis
 		*/
 		SkewT(SkewTAdapter& adapter, int n,
-			double* pTdry, double* DP, double* pWspd, double* pWdir, double* pPres,
+			double* pTdry, double* pDP, double* pWspd, double* pWdir, double* pPres,
 			int nWindBarbs, std::string title, std::string subTitle, std::string credit,
             double tmin = -40.0, double tmax = 40.0, double pmin = 100.0, double pmax = 1050.0);
 		virtual ~SkewT();

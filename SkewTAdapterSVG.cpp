@@ -487,8 +487,8 @@ std::string SkewTSVGText::draw() {
     if (_alignFlag & SkewTSVGText::AlignRight)
         anchor = " text-anchor=\"right\" ";
 
-    if (_alignFlag & SkewTSVGText::AlignHCenter || _alignFlag
-            & SkewTSVGText::AlignCenter)
+    if ((_alignFlag & SkewTSVGText::AlignHCenter) ||
+    		(_alignFlag & SkewTSVGText::AlignCenter))
         anchor = " text-anchor=\"middle\" ";
 
     //    if (_alignFlag & SkewTSVGText::AlignTop)

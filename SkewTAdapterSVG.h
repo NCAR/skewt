@@ -60,7 +60,8 @@ class SkewTAdapterSVG : public SkewTAdapter {
     public:
         /**
          * Construct the adapter. 
-         * @param heght The plot height
+         * @param file Output stream for the SVG text.
+         * @param height The plot height
          * @param width The plot width
          * @param symbolSize The size, in pixels, that symbols will be drawn at.
          */
@@ -181,6 +182,7 @@ class SkewTAdapterSVG : public SkewTAdapter {
         int _width; ///< Plot width
         
 
+        /// Output stream for the SVG text.
         std::ostream& _file;
 };
 /**
@@ -195,10 +197,11 @@ class SkewTSVGText {
          * @param text The text.
          * @param x coordinate, in relative space (0-1)
          * @param y Y coordinate, in relative space  (0-1)
-         * @param width The width of the drawing area.
-         * @param height The height of the drawing area.
+         * @param w The width of the drawing area.
+         * @param h The height of the drawing area.
+         * @param alignFlag Specify the alignment for the text.
          * @param colorCode The color code, from SkewTdefs.h
-         * @parameter fontScale An optional font size scaling factor
+         * @param fontScale An optional font size scaling factor
          */
         SkewTSVGText(std::string text,
                      double x,
@@ -218,10 +221,6 @@ class SkewTSVGText {
         virtual ~SkewTSVGText();
         /** 
          * Draw the text.
-         * @param x coordinate, in relative space (0-1)
-         * @param y Y coordinate, in relative space  (0-1)
-         * @param width The width of the drawing area.
-         * @param height The height of the drawing area.
          * @returns The SVG drawing commands.
          */
         std::string draw();
@@ -251,8 +250,8 @@ class SkewTSVGPolyline {
          * Constructor.
          * @param x coordinate, in relative space (0-1)
          * @param y Y coordinate, in relative space  (0-1)
-         * @param width The width of the drawing area.
-         * @param height The height of the drawing area.
+         * @param w The width of the drawing area.
+         * @param h The height of the drawing area.
          * @param colorCode The color code, from SkewTdefs.h
          */
         SkewTSVGPolyline(std::vector<double> x,
@@ -266,8 +265,6 @@ class SkewTSVGPolyline {
         virtual ~SkewTSVGPolyline();
         /** 
          * Draw the polyline.
-         * @param width The width of the drawing area.
-         * @param height The height of the drawing area.
          * @returns The SVG drawing commands.
          * @todo Implement dashed line drawing.
          */
@@ -296,8 +293,8 @@ class SkewTSVGDatum {
          * Constructor.
          * @param x coordinate, in relative space (0-1)
          * @param y Y coordinate, in relative space  (0-1)
-         * @param width The width of the drawing area.
-         * @param height The height of the drawing area.
+         * @param w The width of the drawing area.
+         * @param h The height of the drawing area.
          * @param size The size of the symbol, in pixels.
          * @param colorCode The color code, from SkewTdefs.h
          */
@@ -313,8 +310,6 @@ class SkewTSVGDatum {
         virtual ~SkewTSVGDatum();
         /** 
          * Draw the datum.
-         * @param width The width of the drawing area.
-         * @param height The height of the drawing area.
          * @returns The SVG drawing commands.
          */
         std::string draw();

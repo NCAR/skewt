@@ -60,7 +60,7 @@ namespace skewt {
 		double m_pmax; ///< Maximum pressure
 
 	protected:
-		double m_pRatio; ///< log10(PresRect::m_pmin/PresRect::m_pmax)
+		double m_pRatio; ///< log10(m_pmin/m_pmax)
 
 	};
 }
