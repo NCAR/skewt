@@ -20,3 +20,7 @@ designed for. In some cases, all of the graph data must be provided at
 construction time, and a static graph will be created. In other cases, 
 a "real-time" update mode is possible, where data points may be incrementally
 added to the graph. 
+
+The included SkewTAdapterSVG provides an example adapter which will render
+the graph to SVG text. [skewtqt](https://github/com/ncareol/skewtqt) is an
+adapter that will render the graph as a Qt widget.
