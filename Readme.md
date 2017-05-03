@@ -22,5 +22,5 @@ a "real-time" update mode is possible, where data points may be incrementally
 added to the graph. 
 
 The included SkewTAdapterSVG provides an example adapter which will render
-the graph to SVG text. [skewtqt](https://github/com/ncareol/skewtqt) is an
+the graph to SVG text. [skewtqt](https://github/com/ncareol/skewtqt.git) is an
 adapter that will render the graph as a Qt widget.
