@@ -43,7 +43,7 @@ headers = Split("""
 #html = env.Apidocs(sources + headers, DOXYFILE_FILE = "Doxyfile")
 #env.Default(html)
 
-if Dir('.').path.startswith('plotlib'):
+if 'plotlib' in Dir('.').path:
 
     print("SkewT being built for plotlib library...")
     # If building plotlib, pass the sources on to the plotlib library.
