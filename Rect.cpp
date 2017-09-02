@@ -203,23 +203,20 @@ Rect::line::line(Rect::point start, Rect::point end):
       //////////////////////////////////////////////////////////////////////
       Rect::outcode::outcode(Rect::point p, Rect& rect)
         {
-        code.c1 = 0;
-        code.c2 = 0;
-        code.c3 = 0;
-        code.c4 = 0;
+            code.c1 = 0;
+            code.c2 = 0;
+            code.c3 = 0;
+            code.c4 = 0;
         
-        if (p.y > rect.m_ymax)
-          code.c1 = 1;
-        else 
-          if (p.y < rect.m_ymin)
-            code.c2 = 1;
+            if (p.y > rect.m_ymax)
+                code.c1 = 1;
+            else if (p.y < rect.m_ymin)
+                code.c2 = 1;
           
-          if (p.x > rect.m_xmax)
-            code.c3 = 1;
-          else
-            if (p.x < rect.m_xmin)
-              code.c4 = 1;
-            
+            if (p.x > rect.m_xmax)
+                code.c3 = 1;
+            else if (p.x < rect.m_xmin)
+                code.c4 = 1;
         }
       
       //////////////////////////////////////////////////////////////////////
