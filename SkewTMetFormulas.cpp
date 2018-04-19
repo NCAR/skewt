@@ -74,6 +74,16 @@ SkewTMetFormulas::~SkewTMetFormulas()
 # define T_3	273.15
 # define EPSILON	0.622
 
+// Constants for Hardy 1998 saturation vapor pressure
+# define g_0    -2.8365744e3
+# define g_1    -6.028076559e3
+# define g_2    1.954263612e1
+# define g_3    -2.737830188e-2
+# define g_4    1.6261698e-5
+# define g_5    7.0229056e-10
+# define g_6    -1.8680009e-13
+# define g_7    2.7150305
+
 /*
 * Lookup table of saturation vapor pressures (every 1/2 degree from 210 K 
 * to 310 K)
@@ -144,16 +154,16 @@ SkewTMetFormulas::w_sat (double t, double p)
 * Saturation mixing ratio in g/kg at t (deg. K) and p (mb)
 */
   {
-  double	e = e_sw (t);
+  double	e = e_sw_hardy_1998 (t);
   
   return (1000.0 * EPSILON * e / (p - e));
   }
 
 //////////////////////////////////////////////////////////////////////
 double
-SkewTMetFormulas::e_sw (double t)
+SkewTMetFormulas::e_sw_herzegh_1988 (double t)
 /*
-* Saturation vapor pressure in mb at temperature t (in deg. K)
+* Saturation vapor pressure in mb at temperature t (in deg. K). Formula from PAM II, Herzegh.
 */
   {
   int	index;
@@ -174,6 +184,23 @@ SkewTMetFormulas::e_sw (double t)
     return (E_3 * exp (_A_ * log (T_3 / t)) * 
     exp ((_A_ + _B_) * (1 - T_3 / t)));
   }
+
+//////////////////////////////////////////////////////////////////////
+double SkewTMetFormulas::e_sw_hardy_1998(double t)
+{
+    // Formula from Hardy in Proceedings of the Third International Symposium on Humidity and Moisture, 1998
+
+    // ln e_sw = (sigma (i = 0, i <= 6) g_i*t^(i-2)) + g_7 * ln(t)
+    // this gives vapor pressure in Pa, so divide final result by 100 to get hPa/mb.
+    return exp( g_0 / pow(t, 2)
+                + g_1 / t
+                + g_2
+                + g_3 * t
+                + g_4 * pow(t, 2)
+                + g_5 * pow(t, 3)
+                + g_6 * pow(t, 4)
+                + g_7 * log(t)) / 100;
+}
 
 //////////////////////////////////////////////////////////////////////
 double
@@ -408,13 +435,13 @@ SkewTMetFormulas::t_wet (double t, double p, double rh)
   /*
   * Find our vapor pressure
   */
-  e_sat = e_sw (t);
+  e_sat = e_sw_hardy_1998 (t);
   e = rh * 0.01 * e_sat;
   /*
   * Initialize
   */
   tw_left = t - 80; /* Assume t_w is within 80 deg. of t */
-  e_left = e_sw (tw_left) - p * (t - tw_left) * 0.00066 * 
+  e_left = e_sw_hardy_1998 (tw_left) - p * (t - tw_left) * 0.00066 *
     (0.6859 + 0.00115 * tw_left);
   
   tw_right = t;
@@ -425,7 +452,7 @@ SkewTMetFormulas::t_wet (double t, double p, double rh)
     tw_guess = tw_left + (e - e_left) / (e_right - e_left) * 
       (tw_right - tw_left);
     
-    e_guess = e_sw (tw_guess) - p * (t - tw_guess) * 0.00066 * 
+    e_guess = e_sw_hardy_1998 (tw_guess) - p * (t - tw_guess) * 0.00066 *
       (0.6859 + 0.00115 * tw_guess);
     
       /*

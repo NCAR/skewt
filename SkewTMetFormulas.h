@@ -37,7 +37,12 @@ namespace skewt {
 		* @param t Temperature (deg K).
 		* @returns  Saturation vapor pressure in mb.
 		*/
-		double	e_sw (double t);
+		double	e_sw_herzegh_1988 (double t);
+		/**
+		 * @param t Temperature (deg K).
+		 * @returns Saturation vapor pressure in mb.
+		 */
+		double e_sw_hardy_1998(double t);
 		/**
 		* @param p Pressure (mb).
 		* @param w Mixing Ratio (g/kg).
