@@ -131,7 +131,7 @@ void SkewT::drawDp(double pres, double dp)
 /////////////////////////////////////////////////////////////////////////////
 void SkewT::drawWind(double pres, double wspd, double wdir)
 {
-  if (pres == -999.0 || wspd == -999.0 || wspd == -999.0)
+  if (pres == -999.0 || wspd == -999.0 || wdir == -999.0)
     return;
 
   m_wspd.push_back(wspd);
