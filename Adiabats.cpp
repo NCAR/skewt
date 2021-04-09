@@ -88,8 +88,8 @@ using namespace skewt;
     // theta is in deg C, pres in mb
     // return t in deg C
     
-    double tda = (theta+273.16)*pow(pres/1000.0, 0.288);
-    return tda - 273.16;
+    double tda = (theta+273.15)*pow(pres/1000.0, 0.288);
+    return tda - 273.15;
     
     }
   

@@ -68,10 +68,10 @@ void IsoMR::draw()
     bool haveLabelPoint = false;
     
     double p1 = pmin;
-    double t1 = m_mf.t_mr( p1, values[i]) - 273.16;
+    double t1 = m_mf.t_mr( p1, values[i]) - 273.15;
     while (p1 <= m_pmax) {
       double p2 = pow(10.0, log10(p1) + logDeltaP);
-      double t2 = m_mf.t_mr(p2, values[i]) - 273.16;
+      double t2 = m_mf.t_mr(p2, values[i]) - 273.15;
       drawLine(t1, p1, t2, p2, color, SkewTRect::DashedLine);
       haveLabelPoint = lastP2(labelPoint);
       p1 = p2;

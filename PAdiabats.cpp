@@ -60,7 +60,7 @@ void PAdiabats::draw()
   
   while (t < 40.0) {
     resetLastP2();
-    double ept = m_mf.theta_e(273.16+t, 273.16+t, 1000.0);
+    double ept = m_mf.theta_e(273.15+t, 273.15+t, 1000.0);
     double p1 = m_pmax;
     double t1 = m_mf.t_sat(ept, p1);
     while (p1 > pmin) {
@@ -68,7 +68,7 @@ void PAdiabats::draw()
       if (p2 < pmin)
         p2 = pmin;
       t2 = m_mf.t_sat(ept, p2);
-      drawLine(t1-273.16, p1, t2 - 273.16, p2, color);
+      drawLine(t1-273.15, p1, t2 - 273.15, p2, color);
       t1 = t2;
       p1 = p2;
       }
