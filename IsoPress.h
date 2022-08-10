@@ -24,7 +24,7 @@ namespace skewt {
 /**
 * Creates isopleths of pressure.
 */
-class IsoPress : public IsoPleth  
+class IsoPress : public IsoPleth
   {
   public:
   /**
@@ -50,7 +50,7 @@ class IsoPress : public IsoPleth
     * Draw the lines.
     */
     void draw();
-    
+
   };
 }
 #endif // !defined(AFX_ISOPRESS_H__60EC9C20_DBD2_11D2_B5B6_DAEF9F2EFBE6__INCLUDED_)

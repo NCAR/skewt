@@ -24,7 +24,7 @@ namespace skewt {
 	/**
 	* Creates isopleths of temperature.
 	*/
-	class IsoTherms : public IsoPleth  
+	class IsoTherms : public IsoPleth
 	{
 	public:
 		/**

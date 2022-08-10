@@ -19,13 +19,13 @@
 
 #include "SkewTdefs.h"
 #include "IsoPleth.h"
-#include "SkewTMetFormulas.h"	
+#include "SkewTMetFormulas.h"
 
 namespace skewt {
 	/**
 	* Creates isopleths of equivalent potential temperature.
 	*/
-	class PAdiabats : public IsoPleth  
+	class PAdiabats : public IsoPleth
 	{
 	public:
 		/**

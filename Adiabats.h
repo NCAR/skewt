@@ -25,11 +25,11 @@
 */
 
 namespace skewt {
-	class Adiabats : public IsoPleth  
+	class Adiabats : public IsoPleth
 	{
 	public:
 		/**
-		* xmin, xmax, ymin and ymax will run between 0 and 1 in the 
+		* xmin, xmax, ymin and ymax will run between 0 and 1 in the
 		* available graphing area.
 		* @param adapter The adapter that renders this Rect on the graphics component.
 		* @param xmin Left extent of the Rect on the graphics page.
@@ -43,7 +43,7 @@ namespace skewt {
 		* @param tSlope Slope of the pressure isopleths, deltaY/deltaX (These are in sceen units).
 		*/
 		Adiabats(SkewTAdapter& adapter,
-			double xmin, double xmax, double ymin, double ymax, 
+			double xmin, double xmax, double ymin, double ymax,
 			double tmin, double tmax, double pmin, double pmax,
 			double tSlope);
 		virtual ~Adiabats();

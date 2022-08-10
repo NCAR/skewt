@@ -25,30 +25,34 @@ using namespace std;
 
 namespace skewt {
 	/**
-	* SkewTAdapter provides a pure virtual interface between the generic SkewT class and a given 
+	* SkewTAdapter provides a pure virtual interface between the generic SkewT class and a given
 	* graphics rendering component. SkewTAdapter is subclassed for each type of graphics component.
 	* For instance, SkewTAdapterPesgo provides the implmentation for displaying SkewT in a
-	* GigaSoft ProEssentials graphics component. Similarly, SkewTAdapterQt allows SkewT to render 
+	* GigaSoft ProEssentials graphics component. Similarly, SkewTAdapterQt allows SkewT to render
 	* via a Qt QWidget.
 	*
-	* The list of member functions is somewhat bloated, but not all of them need to provide functionality. For instance, 
-	* if savePlot() is not needed, the derived class function could be a noop. 
+	* The list of member functions is somewhat bloated, but not all of them need to provide
+	* functionality. For instance, if savePlot() is not needed, the derived class function
+	* could be a noop.
 	*
-	* In usage, a SkewTAdapter is created first, and this is provided to the constructor of the SkewT. Thus,
-	* the SkewT does not know what kind of graphics component is being utilized.
+	* In usage, a SkewTAdapter is created first, and this is provided to the constructor of
+	* the SkewT. Thus, the SkewT does not know what kind of graphics component is being utilized.
 	*
-	* All coordinates in this interface reference a virtual drawing space 0 <= x <= 1, 0 <= y <= 1. The SkewTAdapter 
-	* derived classes are responsible for comverting these values to actuall drawing coordinates.
-	* 
-	* It is legitimate for derived classes to add their own member functions which are specific to the graphics
-	* component. These functions would then be accessed through the adapter, since SkewT will not be aware of them.
+	* All coordinates in this interface reference a virtual drawing space 0 <= x <= 1, 0 <= y <= 1.
+	* The SkewTAdapter derived classes are responsible for converting these values to actual
+	* drawing coordinates.
 	*
-	* Note that the SkewT class has two operational modes. Its constructor can be called with arrays of data to be
-	* initially plotted; this is the normal static mode of operation. However, member functions are provided that allow data to 
-	* be incrementally added, as in a real-time display. (See SkewT::drawTdry(), SkewT::drawDp() and SkewT::drawWind()).
-	* 
+	* It is legitimate for derived classes to add their own member functions which are specific
+	* to the graphics component. These functions would then be accessed through the adapter,
+	* since SkewT will not be aware of them.
+	*
+	* Note that the SkewT class has two operational modes. Its constructor can be called with
+	* arrays of data to be initially plotted; this is the normal static mode of operation.
+	* However, member functions are provided that allow data to be incrementally added, as
+	* in a real-time display. (See SkewT::drawTdry(), SkewT::drawDp() and SkewT::drawWind()).
+	*
 	*/
-	class SkewTAdapter  
+	class SkewTAdapter
 	{
 	public:
 		enum PlotFileType {PNG, JPG};
@@ -64,8 +68,8 @@ namespace skewt {
 		*/
 		virtual void          init() = 0;
 		/**
-		* Called when the drawing is completely finished, and the plot may be displayed. Depending 
-		* on the graphics component, this function may be a noop.
+		* Called when the drawing is completely finished, and the plot may be displayed.
+		* Depending on the graphics component, this function may be a noop.
 		*/
 		virtual void          draw_finished() = 0;
 		/**
@@ -81,8 +85,9 @@ namespace skewt {
 		*/
 		virtual void          addTdry(double x, double y) = 0;
 		/**
-		* Draw a symbol at the specified location. Note that this is not used to draw the 
-		* tdry and dew point data. It can be used, for instance, to draw a small circle at the base of a windbarb.
+		* Draw a symbol at the specified location. Note that this is not used to draw the
+		* tdry and dew point data. It can be used, for instance, to draw a small circle
+		* at the base of a windbarb.
 		* @param x X coordinate, between 0 and 1.
 		* @param y Y coordinate, between 0 and 1.
 		* @param color Color of symbol.
@@ -98,8 +103,8 @@ namespace skewt {
 		*/
 		virtual void          Text(const string& s, const double x, const double y, unsigned int  color) = 0;
 		/**
-		* Return the limits of a zoomed selection area. This is provided so that SkewT can redraw a zoomed plot, 
-		* showing just the region that has been zoomed into.
+		* Return the limits of a zoomed selection area. This is provided so that SkewT can
+		* redraw a zoomed plot, showing just the region that has been zoomed into.
 		* @param xmin Minimum x value.
 		* @param xmax Maximum x value.
 		* @param ymin Minimum y value.
@@ -107,8 +112,8 @@ namespace skewt {
 		*/
 		virtual void          extents(double& xmin, double& xmax, double& ymin, double& ymax) = 0;
 		/**
-		* Draw a line of a spcified color. This is used to render the graph background artifacts, such as
-		* isopleths. It is not used to display the tdry and dp traces.
+		* Draw a line of a spcified color. This is used to render the graph background
+		* artifacts, such as isopleths. It is not used to display the tdry and dp traces.
 		* @param x1 Starting x value.
 		* @param y1 Starting y value.
 		* @param x2 Ending x value.

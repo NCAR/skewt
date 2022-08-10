@@ -25,7 +25,7 @@ namespace skewt {
 	* PresRect implements a Rect, with pressure as the veritcal axis.
 	*
 	*/
-	class PresRect : public Rect  
+	class PresRect : public Rect
 	{
 	public:
 		/**

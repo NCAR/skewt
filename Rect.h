@@ -28,7 +28,7 @@
 #define GREEN  RGB(0,200,0)
 #define BLUE   RGB(0,0,200)
 #define YELLOW RGB(255,255,0)
-#define BROWN  0xCC9933 
+#define BROWN  0xCC9933
 #define WHITE  RGB(255,255,255)
 #define BLACK  RGB(0,0,0)
 #define GREY   RGB(100,100,100)
@@ -71,11 +71,11 @@ namespace skewt {
 	* a second time, for the new line, so that the possible second intersection is clipped.
 	* </ul>
 	*/
-	class Rect  
+	class Rect
 	{
 	public:
 		/**
-		* Line types 
+		* Line types
 		*/
 		enum LineType {SolidLine, DashedLine};
 		/**
