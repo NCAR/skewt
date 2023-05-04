@@ -68,7 +68,7 @@ class SkewTAdapterSVG : public SkewTAdapter {
         SkewTAdapterSVG(std::ostream& file,
                         int height,
                         int width,
-                        int symbolSize = 5);
+                        int symbolSize = 4);
 
         /**
          * Destructor

@@ -23,10 +23,14 @@ SkewTAdapterSVG::SkewTAdapterSVG(std::ostream& file,
                                  int height,
                                  int width,
                                  int symbolSize) :
+    _lastColorCode(0),
     _firstLineCall(true),
+    _lastX2(0),
+    _lastY2(0),
     _symbolSize(symbolSize),
     _pSkewT(0),
     _ready(false),
+    _alignFlag(0),
     _height(height),
     _width(width),
     _file(file)
@@ -522,7 +526,7 @@ SkewTSVGDatum::~SkewTSVGDatum() {
 std::string SkewTSVGDatum::draw() {
 
     // symbol radius
-    double r = _size/2;
+    double r = _size/2.0;
 
     double x = (_w * _x);
     double y = (_h - _h*_y);
