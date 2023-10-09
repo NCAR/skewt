@@ -28,8 +28,8 @@ namespace skewt {
 
 	class outcode;
 	/**
-	* SkewTRect implements a Rect, with pressure as the veritcal axis, and skewed temperature
-	* as the horizontal axis. It is the main buiding block of the thermodynamic section of a
+	* SkewTRect implements a Rect, with pressure as the vertical axis, and skewed temperature
+	* as the horizontal axis. It is the main building block of the thermodynamic section of a
 	* SkewT plot.
 	*
 	* The slope and span of the temperature scale, and the span of the pressure range, 
@@ -117,9 +117,8 @@ namespace skewt {
 		* @param t2 Temperature of the second point.
 		* @param p2 Pressure of the second point.
 		* @param color Color code.
-		* @param lineType Line type.
 		*/
-		void drawLine(double t1, double p1, double t2, double p2, unsigned int color = SKEWT_BLACK, LineType lineType = SolidLine);
+		void drawLine(double t1, double p1, double t2, double p2, unsigned int color = SKEWT_BLACK);
 		void symbol(double t, double pres, unsigned int color);
 
 

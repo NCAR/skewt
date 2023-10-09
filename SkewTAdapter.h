@@ -91,9 +91,8 @@ namespace skewt {
 		* @param x X coordinate, between 0 and 1.
 		* @param y Y coordinate, between 0 and 1.
 		* @param color Color of symbol.
-		* @param st SkewT::SymType
 		*/
-		virtual void          symbol(double x, double y, unsigned int color, SymType st = SmallPlus) = 0;
+		virtual void          symbol(double x, double y, unsigned int color) = 0;
 		/**
 		* Write the text string at the specified location.
 		* @param s The text.
@@ -112,16 +111,15 @@ namespace skewt {
 		*/
 		virtual void          extents(double& xmin, double& xmax, double& ymin, double& ymax) = 0;
 		/**
-		* Draw a line of a spcified color. This is used to render the graph background
+		* Draw a line of a specified color. This is used to render the graph background
 		* artifacts, such as isopleths. It is not used to display the tdry and dp traces.
 		* @param x1 Starting x value.
 		* @param y1 Starting y value.
 		* @param x2 Ending x value.
 		* @param y2 Ending y value.
 		* @param color Color of the line, see color definitions in SkewTdefs.h.
-		* @param lineType The type of line.
 		*/
-		virtual void          line(double x1, double y1, double x2, double y2, unsigned int color, LineType lineType = SolidLine) = 0;
+		virtual void          line(double x1, double y1, double x2, double y2, unsigned int color) = 0;
 		/**
 		* Set the graph main  title.
 		* @param s The title text.

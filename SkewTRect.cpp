@@ -52,7 +52,7 @@ double SkewTRect::x(double t, double y)
 
 
 //////////////////////////////////////////////////////////////////////
-void SkewTRect::drawLine(double t1, double p1, double t2, double p2, unsigned int color, LineType lineType)
+void SkewTRect::drawLine(double t1, double p1, double t2, double p2, unsigned int color)
   {
   
   double y1 = y(p1);
@@ -62,18 +62,7 @@ void SkewTRect::drawLine(double t1, double p1, double t2, double p2, unsigned in
   
   line l = line(point(x1,y1), point(x2,y2));
   
-  Rect::LineType skLineType;
-  switch (lineType) {
-    case DashedLine:
-      skLineType = Rect::DashedLine;
-      break;
-    case SolidLine:
-    default:
-      skLineType = Rect::SolidLine;
-      break;
-    }
-  
-  Rect::drawLine(l, color, skLineType);
+  Rect::drawLine(l, color);
   
   return;
   

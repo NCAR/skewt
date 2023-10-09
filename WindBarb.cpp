@@ -58,10 +58,10 @@ void WindBarb::draw()
 		
   
   xyang(p1, d, barbLen, p2);
-  m_rect.drawLine(Rect::line(p1,p2), SKEWT_BLUE, Rect::SolidLine, 0);
+  m_rect.drawLine(Rect::line(p1,p2), SKEWT_BLUE, 0);
   p1 = p2;
   
-  m_rect.symbol(Rect::point(m_x, m_y), SKEWT_BLUE, Rect::SmallDot);
+  m_rect.symbol(Rect::point(m_x, m_y), SKEWT_BLUE);
   
   //	convert from m/s to knots.
   double w = m_wspd*1.94;
@@ -78,10 +78,10 @@ void WindBarb::draw()
   
   while (w > delta) {
     xyang( p1, d - 120, triLength, p2);
-    m_rect.drawLine(Rect::line(p1,p2), SKEWT_BLUE, Rect::SolidLine, 0);
+    m_rect.drawLine(Rect::line(p1,p2), SKEWT_BLUE, 0);
     p1 = p2;
     xyang( p1, d + 120, triLength, p2 );
-    m_rect.drawLine(Rect::line(p1,p2), SKEWT_BLUE, Rect::SolidLine, 0);
+    m_rect.drawLine(Rect::line(p1,p2), SKEWT_BLUE, 0);
     p1 = p2;
     
     w = w - delta;
@@ -90,7 +90,7 @@ void WindBarb::draw()
   
   if (did50) {
     xyang( p1, d + 180, symScale / 3, p2);   // move in along the barb
-    m_rect.drawLine(Rect::line(p1,p2), SKEWT_BLUE, Rect::SolidLine, 0);
+    m_rect.drawLine(Rect::line(p1,p2), SKEWT_BLUE, 0);
     p1 = p2;
     }
   
@@ -101,11 +101,11 @@ void WindBarb::draw()
   while (w > delta) {
     
     xyang( p1, d - 90, symScale, p2);
-    m_rect.drawLine(Rect::line(p1,p2), SKEWT_BLUE, Rect::SolidLine, 0);
+    m_rect.drawLine(Rect::line(p1,p2), SKEWT_BLUE, 0);
     p1 = p2;
     
     xyang( p1, d + 90, symScale, p2);
-    m_rect.drawLine(Rect::line(p1,p2), SKEWT_BLUE, Rect::SolidLine, 0);
+    m_rect.drawLine(Rect::line(p1,p2), SKEWT_BLUE, 0);
     p1 = p2;
     
     xyang( p1, d + 180, symScale / 2, p2);
@@ -121,11 +121,11 @@ void WindBarb::draw()
   while (w > delta) {
     
     xyang( p1, d - 90, symScale / 2, p2);
-    m_rect.drawLine(Rect::line(p1,p2), SKEWT_BLUE, Rect::SolidLine, 0);
+    m_rect.drawLine(Rect::line(p1,p2), SKEWT_BLUE, 0);
     p1 = p2;
     
     xyang( p1, d + 90, symScale / 2, p2);
-    m_rect.drawLine(Rect::line(p1,p2), SKEWT_BLUE, Rect::SolidLine, 0);
+    m_rect.drawLine(Rect::line(p1,p2), SKEWT_BLUE, 0);
     p1 = p2;
     
     xyang( p1, d + 180, symScale / 2, p2);

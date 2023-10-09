@@ -91,8 +91,7 @@ class SkewTAdapterSVG : public SkewTAdapter {
 
         void symbol(double x,
                     double y,
-                    unsigned int color,
-                    SymType st = SmallPlus);
+                    unsigned int color);
 
         void Text(const std::string& s,
                   const double x,
@@ -129,8 +128,7 @@ class SkewTAdapterSVG : public SkewTAdapter {
                   double y1,
                   double x2,
                   double y2,
-                  unsigned int colorCode,
-                  SkewTAdapter::LineType lineType = SkewTAdapter::SolidLine);
+                  unsigned int colorCode);
 
         void savePlot(std::string path,
                       int xPixels,

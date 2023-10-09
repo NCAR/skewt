@@ -46,7 +46,7 @@ Rect::~Rect()
   }
 
 //////////////////////////////////////////////////////////////////////
-void Rect::drawLine(Rect::line l, unsigned int color, Rect::LineType lineType, bool doClip)
+void Rect::drawLine(Rect::line l, unsigned int color, bool doClip)
   {
   
   bool drawIt = 1;
@@ -67,19 +67,8 @@ void Rect::drawLine(Rect::line l, unsigned int color, Rect::LineType lineType, b
     // convert to page coordinates
     convertToPage(l);
     
-    SkewTAdapter::LineType skLineType;
-    switch (lineType) {
-      case DashedLine:
-        skLineType = SkewTAdapter::DashedLine;
-        break;
-      case SolidLine:
-      default:
-        skLineType = SkewTAdapter::SolidLine;
-        break;
-      }
-    
     // send it to the page
-    m_adapter.line(l.p1.x, l.p1.y, l.p2.x, l.p2.y, color, skLineType);
+    m_adapter.line(l.p1.x, l.p1.y, l.p2.x, l.p2.y, color);
     }
   
   }
@@ -307,25 +296,13 @@ Rect::line::line(Rect::point start, Rect::point end):
         }
       
       //////////////////////////////////////////////////////////////////////
-      void Rect::symbol(Rect::point pp, unsigned int color, SymType st) {
-        
-        SkewTAdapter::SymType symType;
-        
-        switch (st) {
-          case SmallPlus:
-            symType = SkewTAdapter::SmallPlus;
-            break;
-          case SmallDot:
-          default:
-            symType = SkewTAdapter::SmallDot;
-            break;
-          }
+      void Rect::symbol(Rect::point pp, unsigned int color) {
         
         if (pp.x >= m_xmin && pp.x <= m_xmax &&
           pp.y >= m_ymin && pp.y <= m_ymax) {
           
           convertToPage(pp);
-          m_adapter.symbol(pp.x, pp.y, color, symType);
+          m_adapter.symbol(pp.x, pp.y, color);
           }
         }
       

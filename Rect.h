@@ -278,17 +278,15 @@ namespace skewt {
 		* Draw the specified line. Clip it if requested.
 		* @param l The line to be drawn.
 		* @param color The color of the line.
-		* @param lineType The line type.
 		* @param doClip Set true if the line is to be clipped within this Rect.
 		*/
-		void drawLine(line l, unsigned int color = SKEWT_BLACK, LineType lineType = SolidLine, bool doClip = 1);
+		void drawLine(line l, unsigned int color = SKEWT_BLACK, bool doClip = 1);
 		/**
 		* Draw the specified symbol
 		* @param pp The point at which the symbol should be drawn.
 		* @param color The color of the symbol.
-		* @param st The symbol type.
 		*/
-		void symbol(point pp, unsigned int color, SymType st = SmallPlus);
+		void symbol(point pp, unsigned int color);
 		/**
 		* Return the first endpoint of the clipped line.
 		* @param p1 The endpoint, if available, will be returned here

@@ -48,12 +48,11 @@ void SkewTAdapterSVG::line(double x1,
                            double y1,
                            double x2,
                            double y2,
-                           unsigned int colorCode,
-                           SkewTAdapter::LineType lineType) {
+                           unsigned int colorCode) {
 
     // create polyline elements from the specified line segments. Save the polyline, and draw it.
 
-    // The incoming segments are examined. If the color and line type don't change, and the end of
+    // The incoming segments are examined. If the color and last position don't change, and the end of
     // one segment matches the beginning of the next segment, the segments are consolidated into 
     // a single polyline.
 
@@ -303,8 +302,7 @@ void SkewTAdapterSVG::extents(double &xmin,
 //////////////////////////////////////////////////////////////////////
 void SkewTAdapterSVG::symbol(double x,
                              double y,
-                             unsigned int colorCode,
-                             SymType st) {
+                             unsigned int colorCode) {
     // create the datum
     SkewTSVGDatum t(x, y, _width, _height, _symbolSize, colorCode);
 
@@ -358,14 +356,14 @@ double SkewTAdapterSVG::aspectRatio() {
 }
 
 //////////////////////////////////////////////////////////////////////
-void SkewTAdapterSVG::markPoints(bool flag) {
+void SkewTAdapterSVG::markPoints(bool /*flag*/) {
 }
 
 //////////////////////////////////////////////////////////////////////
-void SkewTAdapterSVG::savePlot(std::string path,
-                               int xPixels,
-                               int yPixels,
-                               PlotFileType fileType) {
+void SkewTAdapterSVG::savePlot(std::string /*path*/,
+                               int /*xPixels*/,
+                               int /*yPixels*/,
+                               PlotFileType /*fileType*/) {
 }
 
 //////////////////////////////////////////////////////////////////////
