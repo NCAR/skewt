@@ -60,7 +60,7 @@ void IsoTherms::draw()
     
     if (firstP1(p1) && lastP2(p2)) {
       char s[100];
-      sprintf(s, "|r%.0f", tord);
+      snprintf(s, sizeof(s), "|r%.0f", tord);
       double yText = (p1.y+p2.y)/2.0;
       Text(s, tord, p(yText), 0.0, 0.0, color);
       }

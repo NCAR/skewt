@@ -75,7 +75,7 @@ using namespace skewt;
       if (gotLabelPoint) {
         std::string s = "";
         char buf[100];
-        sprintf(buf, "|c%.0f", theta);
+        snprintf(buf, sizeof(buf), "|c%.0f", theta);
         Rect::Text(buf, labelPoint, color);
         }
       theta += thetaDelta;

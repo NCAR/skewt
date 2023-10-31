@@ -81,9 +81,9 @@ void IsoMR::draw()
       std::string s = "";
       char buf[100];
       if (values[i] >= 1.0)
-        sprintf(buf, "|r%.0f", values[i]);
+        snprintf(buf, sizeof(buf), "|r%.0f", values[i]);
       else
-        sprintf(buf, "|r%.1f", values[i]);
+        snprintf(buf, sizeof(buf), "|r%.1f", values[i]);
       Rect::Text(buf, labelPoint, color);
       }
     }

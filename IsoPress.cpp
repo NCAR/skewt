@@ -60,7 +60,7 @@ void IsoPress::draw()
   while (pLine <= m_pmax) {
     drawLine(tmin, pLine, m_tmax, pLine, color);
     char label[100];
-    sprintf(label, "|r%4.0f", pLine);
+    snprintf(label, sizeof(label), "|r%4.0f", pLine);
     Text(label, -0.03, pLine, -0.01, color);
     pLine += pStep;
   }

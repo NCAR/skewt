@@ -76,7 +76,7 @@ void PAdiabats::draw()
     point lastPoint;
     if (lastP2(lastPoint)) {
       char s[100];
-      sprintf(s, "|c%3.0f", t);
+      snprintf(s, sizeof(s), "|c%3.0f", t);
       Rect::Text(s, lastPoint, color);
       }
     t += 5.0;
