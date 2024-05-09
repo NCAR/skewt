@@ -187,7 +187,11 @@ Rect::line::line(Rect::point start, Rect::point end):
       
       //////////////////////////////////////////////////////////////////////
       Rect::outcode::outcode() {
-        }
+        code.c1 = 0;
+        code.c2 = 0;
+        code.c3 = 0;
+        code.c4 = 0;
+      }
       
       //////////////////////////////////////////////////////////////////////
       Rect::outcode::outcode(Rect::point p, Rect& rect)

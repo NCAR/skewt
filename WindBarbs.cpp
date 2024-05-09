@@ -53,32 +53,34 @@ WindBarbs::WindBarbs(SkewTAdapter& adapter,
                      vector<double>& wdir,
                      int nBarbs):
 PresRect(adapter, xmin, xmax, ymin, ymax, pmin, pmax),
-m_nBarbs(nBarbs)
-  {
+m_nBarbs(nBarbs),
+_logPmin(0),
+_logPmax(0),
+_logInc(0)
+{
   for (size_t i = 0; i < pres.size(); i++) {
     if (pres[i] <= pmax && pres[i] >= pmin)  {
       m_data.push_back(windData(pres[i], wspd[i], wdir[i]));
       }
     }
-  
+
   sort(m_data.begin(), m_data.end());
-  
+
   if (m_nBarbs <1)
     return;
-  
+
   if (m_pmax - m_pmin < 1.0)
     return;                
-  
+
   _logPmin = log10(m_pmin);
   _logPmax = log10(m_pmax);
   _logInc = (_logPmax - _logPmin) / m_nBarbs;
-  
-  }
+}
 
 //////////////////////////////////////////////////////////////////////
 WindBarbs::~WindBarbs()
-  {
-  }
+{
+}
 
 //////////////////////////////////////////////////////////////////////
 void WindBarbs::draw()
